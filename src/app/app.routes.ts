@@ -1,3 +1,4 @@
+// Definindo rodas para aplicação.
 import { Routes } from '@angular/router';
 import { CadastrarTarefa } from './cadastrar-tarefa/cadastrar-tarefa';
 import { ListaTarefas } from './lista-tarefas/lista-tarefas';

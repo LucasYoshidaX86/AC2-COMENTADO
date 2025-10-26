@@ -1,12 +1,15 @@
+<!-- Página de cadastro de tarefas. -->
 <h3>Cadastrar Tarefas</h3>
 
-<form (ngSubmit)="salvar()" class="d-grid gap-2" style="max-width:420px">
+<!-- Formulário para salvar dados. -->
+<form (ngSubmit)="salvar()" class="d-grid gap-2" style="max-width:420px"> <!-- Usuário envia o formulário clicando no botão que chama o método salvar do componente ts.-->
+  <!-- Campos de texto para o usuário digitar suas respostas. -->
   <input class="form-control" [(ngModel)]="tarefa" name="tarefa" placeholder="Tarefa" required>
   <input class="form-control" [(ngModel)]="responsavel" name="responsavel" placeholder="Responsável" required>
   <input class="form-control" [(ngModel)]="data" name="data" placeholder="Data" required>
   <input class="form-control" [(ngModel)]="materia" name="materia" placeholder="Matéria (opcional)">
   <div style="display:flex; gap:8px; align-items:center;">
-    <button class="btn btn-success" type="submit">Salvar</button>
-    <a routerLink="/listar" class="btn btn-link">Ir para Lista</a>
+    <button class="btn btn-success" type="submit">Salvar</button> <!-- Botão aciona e chama o "salvar()"-->
+    <a routerLink="/listar" class="btn btn-link">Ir para Lista</a> <!-- Utiliza routerLink para ir a lista de tarefas cadastradas.-->
   </div>
 </form>

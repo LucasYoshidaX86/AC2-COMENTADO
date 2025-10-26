@@ -9,8 +9,9 @@ import { TarefaService, Tarefa } from '../tarefa-service';
   templateUrl: './lista-tarefas.html',
 })
 export class ListaTarefas {
-  tarefas: Tarefa[] = [];
+  tarefas: Tarefa[] = []; // Cria um array para Tarefas 
 
+  // Chama os métodos de serviços de tarefas criadas no service
   constructor(private srv: TarefaService) {
     this.atualizar();
   }
@@ -29,6 +30,7 @@ export class ListaTarefas {
     this.atualizar();
   }
 
+  // Retorna o número total de tarefas, conta quantas tarefas estão concluídas e quantas estão pendentes (utiliza o concluído de cada tarefa para mudar os números).
   get total() { return this.tarefas.length; }
   get concluidas() { return this.tarefas.filter(t => t.concluida).length; }
   get pendentes() { return this.tarefas.filter(t => !t.concluida).length; }

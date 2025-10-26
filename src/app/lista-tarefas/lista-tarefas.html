@@ -1,23 +1,27 @@
+<!-- Página referente a lista de tarefas. -->
 <h3>Lista de Tarefas</h3>
 
 <div style="display:flex; gap:12px; align-items:center; margin-bottom:8px;">
   <span>Total: {{ total }}</span>
   <span>Concluídas: {{ concluidas }}</span>
   <span>Pendentes: {{ pendentes }}</span>
-  <a routerLink="/cadastrar" style="margin: left 8px;;">Cadastrar nova</a>
+  <a routerLink="/cadastrar" style="margin-left: 8px;;">Cadastrar nova</a>
 </div>
 
+<!-- Caso o array esteja vazio, exibe a mensagem. -->
 @if (tarefas.length === 0) {
   <p>Nenhuma tarefa cadastrada</p>
 }
 
+<!-- Exibe tarefas armazenadas no array. -->
 @for (t of tarefas; track t.id) {
-  <div style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
-    <input type="checkbox" [checked]="t.concluida" (change)="concluir(t.id)">
-    <span>{{ t.tarefa }} — {{ t.responsavel }} — {{ t.data }}</span>
-    @if (t.materia) { <small>({{ t.materia }})</small> }
+  <div style="display:flex; gap:8px; align-items:center; margin-bottom:6px;"> <!-- Estilização. -->
+    <input type="checkbox" [checked]="t.concluida" (change)="concluir(t.id)"> <!-- Checkbox para marcar que a tarefa foi concluida. -->
+    <span>{{ t.tarefa }} — {{ t.responsavel }} — {{ t.data }}</span> <!-- Exibe os dados digitados pelo usuário. -->
+    @if (t.materia) { <small>({{ t.materia }})</small> } <!-- Renderiza apenas se existir uma matéria. -->
 
-    <button type="button" (click)="remover(t.id)" style="margin-left:8px;">
+    <!-- Botão para remoção da tarefa -->
+    <button type="button" (click)="remover(t.id)" style="margin-left:8px;"> <!-- Chama o método que exclui a tarefa pelo id.-->
      Remover
     </button>
 
